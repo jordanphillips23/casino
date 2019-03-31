@@ -62,6 +62,12 @@ public class BlackJack {
 		
 		while (Money > 0) {
 			playRound();
+			System.out.println("Would you like to cash out? if so please type out. If not type anything else.");
+			String response = input.nextLine();
+			if (response.equals("out")) {
+				System.out.println("You cashed out with " + Money + " chips!");
+				break;
+			}
 		}
 		System.out.println("Thank you for playing " + name + ".");
 	}
@@ -72,15 +78,11 @@ public class BlackJack {
 		int amount = 0;
 		
 		while (true) {
-			System.out.println("How much would you like to bet? Press q if you would like to quit.");
+			System.out.println("How much would you like to bet?");
 			
 			 try
 		    {
 				 String usrinput = input.nextLine();
-				 if (usrinput.equals("q")) {
-					 Money = 0;
-					 return;
-				 }
 				 amount = Integer.parseInt(usrinput);
 				 if (amount > 0 && amount <= Money) {
 					 break;
